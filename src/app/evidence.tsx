@@ -1,23 +1,6 @@
+import EvidenceIcon from "./evidence_icon";
 import { EvidenceSelection, EvidenceType, State, evidence_to_old_names } from "./types";
-import Image from 'next/image'
 import { classNames } from "./utils";
-import Dots from './icons/noun-dots.svg?url';
-import GhostOrbs from './icons/noun-bubbles.svg?url';
-import Fingerprints from './icons/noun-fingerprints.svg?url';
-import EMF from './icons/noun-meter.svg?url';
-import SpiritBox from './icons/noun-radio.svg?url';
-import Freezing from './icons/noun-thermometer.svg?url';
-import Writing from './icons/noun-witch-book.svg?url';
-
-const ToSvg: {[key: string]: any} = {
-    [EvidenceType.DOTS]: Dots,
-    [EvidenceType.EMF]: EMF,
-    [EvidenceType.Fingerprints]: Fingerprints,
-    [EvidenceType.Freezing]: Freezing,
-    [EvidenceType.Orbs]: GhostOrbs,
-    [EvidenceType.SpiritBox]: SpiritBox,
-    [EvidenceType.Writing]: Writing
-}
 
 export interface EvidenceProps {
     name: EvidenceType;
@@ -45,12 +28,12 @@ export default function Evidence(props: EvidenceProps) {
     };
 
     const classes = classNames({
-        'svg': true,
-        'green': current === EvidenceSelection.Confirmed,
-        'red': current === EvidenceSelection.NotSeen,
+        'large': true,
+        'svg-green': current === EvidenceSelection.Confirmed,
+        'svg-red': current === EvidenceSelection.NotSeen,
     });
 
-    const svg = ToSvg[props.name];
-
-    return <Image className={classes} src={svg} alt={evidence_to_old_names(props.name)} onClick={onClick} />
+    return <div className={classes} onClick={onClick}>
+        <EvidenceIcon name={props.name} />
+    </div>;
 }

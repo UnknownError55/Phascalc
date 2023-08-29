@@ -119,5 +119,16 @@ export function evidence_to_old_names(evidence: EvidenceType): string {
         case EvidenceType.Freezing: return "Freezing Temperature";
         case EvidenceType.Writing: return "Ghost Writing";
     }
-    return `wat: ${evidence}`;
+}
+
+export function evidence_to_simple_names(evidence: EvidenceType): string {
+    switch (evidence) {
+        case EvidenceType.DOTS: return "dots";
+        case EvidenceType.Orbs: return "orbs";
+        case EvidenceType.Fingerprints: return "fingerprints";
+        case EvidenceType.EMF: return "emf";
+        case EvidenceType.SpiritBox: return "spiritbox";
+        case EvidenceType.Freezing: return "freezing";
+        case EvidenceType.Writing: return "writing";
+    }
 }

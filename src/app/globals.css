@@ -22,24 +22,32 @@ body {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+  font-size: 2em;
 }
 
 .svg {
   filter: invert(100%);
+}
+
+.large .svg {
   width: 64px;
   height: 64px;
 }
 
+.small .svg {
+  width: 1em;
+  height: 1em;
+}
 
-.svg.green {
+.svg-green {
   filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(85deg) brightness(100%) contrast(100%);
 }
 
-.svg.red {
+.svg-red {
   filter: invert(50%) sepia(100%) saturate(5000%) hue-rotate(330deg) brightness(100%) contrast(100%);
 }
 
-.svg.inactive {
+.svg-inactive {
   filter: invert(0%) sepia(0%) saturate(1000%) hue-rotate(0) brightness(-100%) contrast(70%);
 }
 
@@ -56,8 +64,47 @@ body {
 
 .ghosts>div {
   flex: 0 0 33.33333%;
+  text-align: center;
 }
 
 .ghosts>div.inactive {
   color: #333333;
+}
+
+.impossible {
+  display: 'flex';
+  flex-direction: 'column';
+}
+
+.reset-button {
+  padding-right: 2em;
+}
+
+.ghost {
+  display: flex;
+  flex-direction: row;
+}
+
+.ghost .evidence-dots {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(85deg) brightness(100%) contrast(100%);
+}
+
+.ghost .evidence-orbs {
+  filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(0) brightness(100%) contrast(100%);
+}
+
+.ghost .evidence-freezing {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg) brightness(100%) contrast(100%);
+}
+
+.ghost .evidence-fingerprints {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(270deg) brightness(100%) contrast(100%);
+}
+
+.ghost .evidence-emf {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(330deg) brightness(100%) contrast(100%);
+}
+
+.ghost .evidence-writing {
+  filter: invert(50%) sepia(100%) saturate(100%) hue-rotate(330deg) brightness(100%) contrast(100%);
 }
