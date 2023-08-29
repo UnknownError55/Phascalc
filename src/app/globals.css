@@ -17,11 +17,47 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: white;
+  background: black;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.svg {
+  filter: invert(100%);
+  width: 64px;
+  height: 64px;
+}
+
+
+.svg.green {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(85deg) brightness(100%) contrast(100%);
+}
+
+.svg.red {
+  filter: invert(50%) sepia(100%) saturate(5000%) hue-rotate(330deg) brightness(100%) contrast(100%);
+}
+
+.svg.inactive {
+  filter: invert(0%) sepia(0%) saturate(1000%) hue-rotate(0) brightness(-100%) contrast(70%);
+}
+
+.evidence {
+  background-color: #333333;
+  display: flex;
+  flex-direction: row;
+}
+
+.ghosts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ghosts>div {
+  flex: 0 0 33.33333%;
+}
+
+.ghosts>div.inactive {
+  color: #333333;
 }
