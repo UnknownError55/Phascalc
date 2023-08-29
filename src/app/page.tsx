@@ -13,12 +13,14 @@ for (const k of AllEvidence) {
 export default function Home() {
   const [evidence, set_evidence] = useState(DefaultBlankEvidence);
 
-  const impossible_evidence: {[key: string]: string[]} = {};
+  const impossible_evidence: { [key: string]: boolean } = {};
+  const possible_evidence: { [k: string]: number } = {};
   for (const k of AllEvidence) {
-    impossible_evidence[k] = [];
+    impossible_evidence[k] = false;
+    possible_evidence[k] = 0;
   }
 
-  const impossible_ghost: {[key: string]: string[]} = {};
+  const impossible_ghost: { [key: string]: string[] } = {};
   for (const ghost of AllGhosts) {
     const reasoning = impossible_ghost[ghost] = [] as string[];
     for (const [e, value] of Object.entries(evidence)) {
@@ -36,14 +38,28 @@ export default function Home() {
     }
   }
 
+  // Find out what evidence is available from the ghosts available
+  // This needs to be done last
+  for (const k of AllGhosts) {
+    if (impossible_ghost[k].length > 0) {continue;}
+    for (const e of RealEvidence[k]) {
+      possible_evidence[e]++;
+    }
+  }
+
+  for (const e of AllEvidence) {
+    if (evidence[+e] !== EvidenceSelection.Unknown) { continue; }
+    impossible_evidence[e] = possible_evidence[+e] === 0;
+  }
+
   const reset = () => {
-    set_evidence({...DefaultBlankEvidence});
+    set_evidence({ ...DefaultBlankEvidence });
   };
 
   return (
     <div>
       <div className='evidence'>
-        {AllEvidence.map(k => <Evidence name={k} key={k} state={evidence} setter={set_evidence} impossible={impossible_evidence} />)}
+        {AllEvidence.map(k => <Evidence name={k} key={k} state={evidence} setter={set_evidence} impossible={impossible_evidence[k]} />)}
         <div className='flex-1'></div>
         <button className='reset-button' onClick={reset}>Clear</button>
       </div>

@@ -6,7 +6,7 @@ export interface EvidenceProps {
     name: EvidenceType;
     state: State;
     setter: (x: State) => void;
-    impossible: { [key: string]: string[] };
+    impossible: boolean;
 }
 
 export default function Evidence(props: EvidenceProps) {
@@ -34,6 +34,6 @@ export default function Evidence(props: EvidenceProps) {
     });
 
     return <div className={classes} onClick={onClick}>
-        <EvidenceIcon name={props.name} />
+        <EvidenceIcon name={props.name} inactive={props.impossible} />
     </div>;
 }
