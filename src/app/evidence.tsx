@@ -1,5 +1,5 @@
 import EvidenceIcon from "./evidence_icon";
-import { EvidenceSelection, EvidenceType, State, evidence_to_old_names } from "./types";
+import { EvidenceSelection, EvidenceType, State } from "./types";
 import { classNames } from "./utils";
 
 export interface EvidenceProps {

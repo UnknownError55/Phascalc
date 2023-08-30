@@ -20,7 +20,7 @@ const RealEvidence: { [k: string]: EvidenceType[] } = {
     [Ghost.Shade]: [EvidenceType.Writing, EvidenceType.EMF, EvidenceType.Freezing],
     [Ghost.Spirit]: [EvidenceType.Writing, EvidenceType.EMF, EvidenceType.SpiritBox],
     [Ghost.Thaye]: [EvidenceType.DOTS, EvidenceType.Writing, EvidenceType.Orbs],
-    [Ghost.TheMimic]: [EvidenceType.Fingerprints, EvidenceType.Freezing, EvidenceType.SpiritBox],
+    [Ghost.TheMimic]: [EvidenceType.Fingerprints, EvidenceType.Freezing, EvidenceType.SpiritBox, EvidenceType.Orbs],
     [Ghost.TheTwins]: [EvidenceType.EMF, EvidenceType.Freezing, EvidenceType.SpiritBox],
     [Ghost.Wraith]: [EvidenceType.DOTS, EvidenceType.EMF, EvidenceType.SpiritBox],
     [Ghost.Yokai]: [EvidenceType.DOTS, EvidenceType.Orbs, EvidenceType.SpiritBox],

@@ -29,16 +29,17 @@ export default function GhostComponent(props: GhostComponentProps) {
             variant="info"
         >
             <div className="impossible">
-                {impossible.map(x => <span>{x}</span>)}
+                {impossible.map(x => <span key={x}>{x}</span>)}
             </div>
         </ReactTooltip>;
     }
 
-    const evidence = RealEvidence[props.name].map(x => <EvidenceIcon name={x} inactive={props.evidence[x] !== EvidenceSelection.Unknown || is_impossible} />)
+    const evidence = RealEvidence[props.name].map(x => <EvidenceIcon name={x} key={x} inactive={props.evidence[x] !== EvidenceSelection.Unknown || is_impossible} />)
 
     return <>
         <div className={classes}>
-            {evidence}<span data-tooltip-id={name}>{name}</span>
+            <div className="ghost-evidence-preview">{evidence}</div>
+            <span data-tooltip-id={name}>{name}</span>
         </div>
         {tooptip}
     </>;
