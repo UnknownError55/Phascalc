@@ -1,5 +1,4 @@
-import { EvidenceType, evidence_to_old_names, evidence_to_simple_names } from "./types";
-import Image from 'next/image'
+import { EvidenceType, evidence_to_simple_names } from "./types";
 import Dots from './icons/noun-dots.svg';
 import GhostOrbs from './icons/noun-bubbles.svg';
 import Fingerprints from './icons/noun-fingerprints.svg';
@@ -20,12 +19,10 @@ const ToSvg: { [key: string]: () => any } = {
 }
 
 export default function EvidenceIcon(props: { name: EvidenceType, inactive?: boolean }) {
-    const name = evidence_to_old_names(props.name);
     const classes = classNames({
         [`evidence-${evidence_to_simple_names(props.name)}`]: true && !props.inactive,
         'svg-inactive': props.inactive ?? false
     })
 
-    // return <Image className={classes} src={svg} alt={name} />;
     return <span className={classes}>{ToSvg[props.name]()}</span>;
 }

@@ -119,3 +119,46 @@ svg {
   display: flex;
   flex-direction: column;
 }
+
+.additional-tells {
+  padding: 0.5em;
+  background-color: #111111;
+}
+
+.additional-tells>div {
+  padding: 0.5em;
+  margin: 0.5em;
+  border: solid 1px #dddddd;
+}
+
+h1 {
+  color: #dd5555;
+}
+
+input {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  background-color: #333333;
+  padding-left: 0.25em;
+}
+
+input.num {
+  width: 3em;
+}
+
+.wrap-this {
+  max-width: 40em;
+  text-overflow: ellipsis;
+}
+
+button.red {
+  background-color: #dd5555;
+}
+
+button.green {
+  background-color: green;
+}
+
+label {
+  padding-right: 0.5em;
+}

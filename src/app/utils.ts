@@ -4,3 +4,7 @@ export function classNames(classes: { [k: string]: boolean }) {
         .map(([key, _value]) => key)
         .join(' ');
 }
+
+export function set_diff<T>(superset: T[], subset: T[]): T[] {
+    return superset.filter(x => !subset.includes(x));
+}
