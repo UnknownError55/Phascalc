@@ -33,7 +33,7 @@ export default function OptionButtons(props: OptionButtonsProps) {
     if (props.tip) {
         let text;
         if (Array.isArray(props.tip)) {
-            text = <ol>{props.tip.map(x => <li>{x}</li>)}</ol>;
+            text = <ol>{props.tip.map((x, i) => <li key={i}>{x}</li>)}</ol>;
         }
         else {
             text = <span>props.tip</span>;

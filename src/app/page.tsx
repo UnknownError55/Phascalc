@@ -101,7 +101,7 @@ export default function Home() {
       }
     }
   }
-  
+
   // Find out what evidence is available from the ghosts available
   // This needs to be done last
   for (const k of AllGhosts) {
@@ -118,6 +118,9 @@ export default function Home() {
 
   const reset = () => {
     set_evidence({ ...DefaultBlankEvidence });
+    set_hunt_refusal(Choice.Unknown);
+    set_hunt_sanity('');
+    set_known_age('');
   };
 
   return (
@@ -125,7 +128,9 @@ export default function Home() {
       <div className='evidence'>
         {AllEvidence.map(k => <Evidence name={k} key={k} state={evidence} setter={set_evidence} impossible={impossible_evidence[k]} />)}
         <div className='flex-1'></div>
-        <button className='reset-button' onClick={reset}>Clear</button>
+        <div>
+          <button className='reset-button hover:bg-red-700' onClick={reset}>Clear</button>
+        </div>
       </div>
       <div className='ghosts'>
         {AllGhosts.map(k => <GhostComponent name={k} key={k} impossible={impossible_ghost} evidence={evidence} />)}
@@ -137,7 +142,7 @@ export default function Home() {
             <label htmlFor='hunt_sanity'>Highest hunt sanity:</label>
             <input name='hunt_sanity' type='number' className='num' value={hunt_sanity} onChange={e => set_hunt_sanity(e.target.value)}></input>
           </div>
-          <OptionButtons state={hunt_refusal} setter={set_hunt_refusal} label='Refuses to hunt' tip={[
+          <OptionButtons state={hunt_refusal} setter={set_hunt_refusal} label='Refuses to hunt:' tip={[
             'Raiju will refuse to hunt if there is no active electronic equipment',
             'Yokai will not hunt unless someone talks in the ghosts current room',
             'The Mimic can mimic these ghosts\' traits'
